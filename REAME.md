@@ -1,2 +1,2 @@
 Type of request
-how to use external css in ejs
+how to use external css in ejs  
