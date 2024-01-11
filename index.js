@@ -4,6 +4,9 @@ const App =express()
 App.get("/",(req,res)=>{  
     res.send("Hello World")
 })
+App.get("/welcome",(req,res)=>{  
+    res.sendFile(__dirname+"/index.html")
+})
 
 
 App.listen(4000,(erro)=>{
