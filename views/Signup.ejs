@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Signup</title>
+
+  <style>
+    *{
+box-sizing: border-box;       
+}
+
+section{
+max-width: 500px;
+width: 100%;
+margin: 0 auto;
+padding: 20px 10px;
+box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.3);
+border-radius: 8px;
+}
+
+h1, h2{
+display: flex;
+justify-content: center;
+color: navy;
+}
+
+div{
+margin-bottom: 20px;
+}
+  a{
+  padding: 0px 4px;
+  }
+input{
+padding: 5px;
+line-height: 24px;
+font-size: 16px;
+outline: none;
+border: 1px solid grey;
+width: 100%;      
+border-radius: 4px;
+}
+
+.center{
+display: flex;
+justify-content: center;
+}
+
+label{
+display: block;
+margin-bottom: 5px;
+}
+
+button{
+background: navy;
+font-size: 20px;
+color: white;
+border: none;
+padding: 10px 40px;
+border-radius: 4px;
+
+}
+</style>
+</head>
+<body>
+    <h1>Signup</h1>
+
+    <section>
+      <h2>Signup here</h2>
+      <form onsubmit="signUp(event)">
+
+        <!-- Email -->
+        <div >
+          <label for="email">Email</label>
+          <input required type="email" name="email" id="email">
+        </div>
+        <!-- First name -->
+        <div >
+          <label for="firstName">First Name</label>
+          <input required type="text" name="firstName" id="firstName">
+        </div>
+        <!-- Middle name -->
+        <div >
+          <label for="secondName">Second Name</label>
+          <input type="text" name="secondName" id="secondName">
+        </div>
+        <div >
+          <label for="lastName">Last Name</label>
+          <input required type="text" name="lastName" id="lastName">
+        </div>
+        <!-- Password -->
+        <div >
+          <label for="password">Password</label>
+          <input required type="password" name="password" id="password">
+        </div>
+        <div id="error" class="center" style="display: none; color: red;">
+            User already exists
+        </div>
+        <div id="success" class="center" style="display: none;">
+          Signup was successful, please click on login link below to login
+        </div>
+        <div class="center">
+          <button> Signup </button>
+        </div>
+      </form>
+      <div class="center">Already have an account? 
+        <a href="./login.html"> login here</a>
+      </div>
+      
+    </section>
+
+</body>
+<!-- <script src="./index.js"></script> -->
+</html>
