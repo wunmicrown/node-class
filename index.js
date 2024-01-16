@@ -1,6 +1,7 @@
 const express=require("express")
 const App =express()
 const ejs = require("ejs")
+App.set("view engine","ejs")
 
 App.get("/",(req,res)=>{  
     res.send("Hello World")
