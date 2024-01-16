@@ -1,5 +1,6 @@
 const express=require("express")
 const App =express()
+const ejs = require("ejs")
 
 App.get("/",(req,res)=>{  
     res.send("Hello World")
