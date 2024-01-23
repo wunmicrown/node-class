@@ -19,27 +19,7 @@ App.set("view engine", "ejs")
 App.use(express.static("public"))
 App.use(express.urlencoded({ extended: true }))
 
-// 
-let users = [
-    {
-        firstName: "Oluwapamilerin",
-        lastName: "Oluwatobi",
-        email: "oluwapamilerinayo@gmail.com",
-        password: "123456",
-    },
-    {
-        firstName: "paul",
-        lastName: "grace",
-        email: "paul@gmail.com",
-        password: "123456",
-    },
-    {
-        firstName: "galaxy",
-        lastName: "tobi",
-        email: "galaxy@gmail.com",
-        password: "123456",
-    }
-]
+
 // Schema is used to be structure the database collection
 let stundentSchema = mongoose.Schema({
     username: String,
@@ -72,27 +52,36 @@ App.get("/Login", (req, res) => {
 App.get("/dashboard", (req, res) => {
     res.render("dashboard", { users: users })
 })
-
-    App.get("/getUser", (req, res) => {
-        res.render("getUser", { users: users })
+// App.get("/getUser", (req, res) => {
+    //     try {
+        //         stundentModel.find({})
+        //         .then((result)=>{
+            //             // res.render("dashboard", { users: users })
+//             // res.send(result)
+//             console.log(result);
+//         }).catch(()=>{
+//             res.send("Error")
+//         })
+//     } catch {
+    //         console.log('error');
+    //     }
+    
+    // })
+    App.get("/users", (req, res) => {
+        stundentModel.find({})
+        .then((result=>{
+           console.log(result);
+           res.render('users',{users:result})
+        }))
     })
 
-App.post("/submit", async  (req, res) => {
-    await stundentModel.deleteMany()
+App.post("/create", async  (req, res) => {
     try {
         console.log(req.body);    
         let student = new stundentModel(req.body);
-        await student.save();
+        await student.save()
         console.log("User saved to database");
-        // res.render("getUser");
-         stundentModel.find({})
-         .then((result=>{
-            // console.log(res);
-            res.render('/getUser',{users:result})
-         }))
-         .catch((err=>{
-            console.log(err)
-         }))
+        return res.redirect("/users")
       } catch (error) {
         console.log(error);
       }
