@@ -12,31 +12,30 @@
 
     <section>
       <h2>Signup here</h2>
-      <form onsubmit="signUp(event)">
-
+      <form action="/register" method="post">
         <!-- Email -->
         <div >
           <label for="email">Email</label>
-          <input required type="email" name="email" id="email">
+          <input required type="email" name="email" >
         </div>
         <!-- First name -->
         <div >
           <label for="firstName">First Name</label>
-          <input required type="text" name="firstName" id="firstName">
+          <input required type="text" name="firstName" >
         </div>
         <!-- Middle name -->
         <div >
           <label for="secondName">Second Name</label>
-          <input type="text" name="secondName" id="secondName">
+          <input type="text" name="secondName" >
         </div>
         <div >
           <label for="lastName">Last Name</label>
-          <input required type="text" name="lastName" id="lastName">
+          <input required type="text" name="lastName" >
         </div>
         <!-- Password -->
         <div >
           <label for="password">Password</label>
-          <input required type="password" name="password" id="password">
+          <input required type="password" name="password" >
         </div>
         <div id="error" class="center" style="display: none; color: red;">
             User already exists
@@ -45,7 +44,7 @@
           Signup was successful, please click on login link below to login
         </div>
         <div class="center">
-          <button> Signup </button>
+          <button type="submit"> Signup </button>
         </div>
       </form>
       <div class="center">Already have an account? 
@@ -55,5 +54,4 @@
     </section>
 
 </body>
-<!-- <script src="./index.js"></script> -->
 </html>
